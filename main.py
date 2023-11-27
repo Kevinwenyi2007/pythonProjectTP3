@@ -19,8 +19,8 @@ nombre_defaites = 0
 startingScore = 20
 print('ton niveau de vie au debut est',startingScore)
 
-
-while Jeu == 'yes' and startingScore > 0: # l'utilisateur veut jouer le jeu et s'il n'est pas mort
+# l'utilisateur veut jouer le jeu et s'il n'est pas mort
+while Jeu == 'yes' and startingScore > 0:
     scoreMonstre1 = random.randint(1, 6)
     scoreMonstre2 = random.randint(1, 6)
 
@@ -38,38 +38,48 @@ while Jeu == 'yes' and startingScore > 0: # l'utilisateur veut jouer le jeu et s
 
     choix = int(input('cest quoi votre choix'))
 
-
-
-    if choix == 1: #Que voulez-vous faire: combattre cet adversaire
+    # Que voulez-vous faire: combattre cet adversaire
+    if choix == 1:
         score_de = random.randint(1, 30)
         if scoreMonstre >= score_de:
             nombre_defaites += 1
             victoiresConsecutive = 0
-            startingScore -= scoreMonstre  # l'utilisateur perd
+
+            # l'utilisateur perd
+            startingScore -= scoreMonstre
 
             print('votre nombre de defaites est de', nombre_defaites)
             print('votre nombre de victoire consecutive est de', victoiresConsecutive)
         elif scoreMonstre < score_de:
             nombre_victoire += 1
             victoiresConsecutive += 1
-            startingScore += scoreMonstre  # l'utilisateur gagne
+
+            # l'utilisateur gagne
+            startingScore += scoreMonstre
 
             print('votre nombre de victoire est de', nombre_victoire)
             print('votre nombre de victoire consecutive est de', victoiresConsecutive)
     numero_combat += 1
-    print('cest le',numero_combat,'combat') # montrer le nombre de combat
 
+    # montrer le nombre de combat
+    print('cest le',numero_combat,'combat')
 
-    if choix == 2: # Contourner cet adversaire et aller ouvrir une autre porte
+    # Contourner cet adversaire et aller ouvrir une autre porte
+    if choix == 2:
         startingScore -= 1
         print(startingScore,'est votre nombre de vie maintenant')
-    if choix == 3:#Afficher les règles du jeu
+
+    # Afficher les règles du jeu
+    if choix == 3:
         print(
             'Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.  Dans ce cas, le niveau de vie de usager est augmenté de la force de adversaire.Une défaite a lieu lorsque la valeur du dé lancé par usager est inférieure ou égale à la force de adversaire.  Dans ce cas, le niveau de vie de usager est diminué de la force de adversaire.La partie se termine lorsque les points de vie de usager tombent sous 0.Usager peut combattre ou éviter chaque adversaire, dans le cas de évitement, il y a une pénalité de 1 point de vie. ')
 
-    if choix == 4:# Quitter la partie
+    # Quitter la partie
+    if choix == 4:
         print('merci et au revoir')
-        Jeu = 'no' # arreter le jeu
+
+        # arreter le jeu
+        Jeu = 'no'
 else:
     print('merci et au revoir')
 # pour la question theorique, la reponse est que on peut creer plusieurs variables qui representent les forces
